@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intel's Sustainability Timeline</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header / Hero Section -->
+  <header class="hero">
+    <div class="hero-inner">
+      <!-- Ask Copilot to teach you about `.svg`. 🙂 You'll need to resize the logo with CSS. -->
+      <img class="hero-logo" src="intel-logo-3.webp" alt="Intel Logo" />
+
+      <!-- Main Heading -->
+      <h1>Intel's Sustainability Timeline</h1>
+
+      <!-- Subheading / Description -->
+      <p class="hero-sub">
+        Explore Intel's journey through time, discovering how our commitment
+        to innovation has shaped a more sustainable future for technology
+        and our planet.
+      </p>
+    </div>
+  </header>
+
+  <!-- Timeline Cards Section -->
+  <section class="timeline" aria-label="Sustainability timeline">
+
+    <!-- Card 1: 2006 -->
+    <div class="card cat-ghg">
+      <h2>2006</h2>
+      <h3>Peak GHG Emissions</h3>
+
+      <!-- Add image -->
+      <img class="card-img" src="ghg-2006[1].jpg" alt="Factory operations and emissions reduction" />
+
+      <p class="summary">
+        This year marks Intel's highest annual greenhouse gas emissions
+        for operations. Over subsequent years, Intel invests in chemical
+        abatement, renewable energy, and energy-efficient manufacturing.
+      </p>
+
+      <!-- Hidden details (reveal on hover / tap) -->
+      <div class="details">
+        <ul>
+          <li>Baseline moment that helps measure long-term progress.</li>
+          <li>Focus areas: abatement, efficiency, and clean energy.</li>
+          <li>Sets the “why” behind future sustainability goals.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 2: 2020 -->
+    <div class="card cat-strategy">
+      <h2>2020</h2>
+      <h3>RISE Strategy</h3>
+
+      <!-- Add image -->
+      <img class="card-img" src="rise-2020[1].jpg" alt="Strategy roadmap and sustainability planning" />
+
+      <p class="summary">
+        Intel launches its RISE (Responsible, Inclusive, Sustainable,
+        Enabling) strategy and 2030 goals to drive climate action,
+        water stewardship, and waste reduction.
+      </p>
+
+      <div class="details">
+        <ul>
+          <li>Organizes sustainability work into clear pillars and targets.</li>
+          <li>Introduces measurable 2030 goals across key categories.</li>
+          <li>Moves from initiatives to a structured roadmap approach.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 3: 2022 -->
+    <div class="card cat-netzero">
+      <h2>2022</h2>
+      <h3>Net-Zero By 2040</h3>
+
+      <!-- Add image -->
+      <img class="card-img" src="netzero-2040[1].jpg" alt="Net-zero pathway and clean energy transition" />
+
+      <p class="summary">
+        Intel announces its commitment to achieve net-zero greenhouse
+        gas emissions (Scope 1 and 2) across its global operations
+        by 2040, building on years of environmental initiatives.
+      </p>
+
+      <div class="details">
+        <ul>
+          <li>Long-term target for operational emissions.</li>
+          <li>Builds on efficiency + renewable electricity progress.</li>
+          <li>Creates a clear “end-state” for the roadmap.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 4: 2023 -->
+    <div class="card cat-renewable">
+      <h2>2023</h2>
+      <h3>Renewable Electricity</h3>
+
+      <!-- Add image -->
+      <img class="card-img" src="renewable-2023[1].jpg" alt="Renewable electricity and clean energy grid" />
+
+      <p class="summary">
+        The company achieves 99% renewable electricity usage worldwide,
+        helping to lower carbon emissions and driving progress toward
+        long-term sustainability goals.
+      </p>
+
+      <div class="details">
+        <ul>
+          <li>Concrete progress milestone (not just a promise).</li>
+          <li>Directly supports emissions reduction goals.</li>
+          <li>Shows momentum toward future targets.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 5: 2024 -->
+    <div class="card cat-summit">
+      <h2>2024</h2>
+      <h3>Sustainability Summit</h3>
+
+      <!-- Add image -->
+      <img class="card-img" src="summit-2024[1].jpg" alt="Conference collaboration and sustainable manufacturing" />
+
+      <p class="summary">
+        Intel hosts its first Sustainability Summit, uniting suppliers,
+        government officials, and industry leaders to collaborate on
+        next-generation sustainable semiconductor manufacturing.
+      </p>
+
+      <div class="details">
+        <ul>
+          <li>Signals supply chain + partner alignment.</li>
+          <li>Moves sustainability beyond internal operations.</li>
+          <li>Focuses on scaling solutions across the industry.</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <p class="hint">Scroll horizontally on desktop • Tap cards on mobile to expand</p>
+
+  <!-- Tap-to-expand script for mobile/touch; hover still works on desktop -->
+  <script>
+  (() => {
+    const root = document.documentElement;
+    const tapMql = window.matchMedia('(hover: none), (pointer: coarse)');
+    const cards = Array.from(document.querySelectorAll('.timeline .card'));
+    if (!cards.length) return;
+
+    // Make cards keyboard-focusable (good UX and accessibility)
+    cards.forEach(card => {
+      card.tabIndex = 0;
+      card.setAttribute('aria-expanded', 'false');
+    });
+
+    function setTapMode(on) {
+      root.classList.toggle('tap-mode', on);
+      // close everything when changing modes (like rotating the phone)
+      cards.forEach(c => {
+        c.classList.remove('is-open');
+        c.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    setTapMode(tapMql.matches);
+    tapMql.addEventListener?.('change', e => setTapMode(e.matches));
+
+    function toggleCard(card) {
+      const willOpen = !card.classList.contains('is-open');
+
+      // close other cards (keeps it “roadmap” clean)
+      cards.forEach(c => {
+        c.classList.remove('is-open');
+        c.setAttribute('aria-expanded', 'false');
+      });
+
+      if (willOpen) {
+        card.classList.add('is-open');
+        card.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // Tap / click toggles on touch devices only
+    document.addEventListener('click', (e) => {
+      if (!root.classList.contains('tap-mode')) return;
+
+      const card = e.target.closest('.card');
+      if (!card) return;
+
+      // Don't hijack link clicks if you add links later
+      if (e.target.closest('a')) return;
+
+      toggleCard(card);
+    });
+
+    // Keyboard: Enter/Space toggles
+    document.addEventListener('keydown', (e) => {
+      const card = document.activeElement?.closest?.('.card');
+      if (!card) return;
+
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleCard(card);
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
