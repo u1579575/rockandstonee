@@ -1,219 +1,554 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" data-bs-dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Intel's Sustainability Timeline</title>
+  <title>Sustainability Through the Ages</title>
+
+  <!-- Bootstrap (LTR default). JS will switch to RTL file when needed. -->
+  <link id="bootstrapCss"
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Header / Hero Section -->
   <header class="hero">
-    <div class="hero-inner">
-      <!-- Ask Copilot to teach you about `.svg`. 🙂 You'll need to resize the logo with CSS. -->
-      <img class="hero-logo" src="intel-logo-3.webp" alt="Intel Logo" />
+    <div class="container hero-inner">
+      <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap">
+        <!-- Logo -->
+        <img class="hero-logo" src="img/intel-header-logo.svg[1]" alt="Intel logo" />
 
-      <!-- Main Heading -->
-      <h1>Intel's Sustainability Timeline</h1>
+        <!-- Language / Direction toggle -->
+        <div class="d-flex align-items-center gap-2">
+          <span class="visually-hidden" id="langHelp">Switch language and layout direction</span>
 
-      <!-- Subheading / Description -->
-      <p class="hero-sub">
-        Explore Intel's journey through time, discovering how our commitment
-        to innovation has shaped a more sustainable future for technology
-        and our planet.
-      </p>
+          <button id="langToggle"
+                  type="button"
+                  class="btn btn-outline-light btn-sm"
+                  aria-describedby="langHelp"
+                  aria-label="Switch language">
+            العربية
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <h1 class="hero-title" data-i18n="heroTitle">Sustainability Through the Ages</h1>
+
+        <p class="hero-sub" data-i18n="heroSub">
+          Explore a journey through time—see how long-term goals, progress milestones, and collaboration
+          can drive a more sustainable future.
+        </p>
+
+        <div class="hero-badges" aria-label="Themes">
+          <span class="badge rounded-pill text-bg-light text-dark">Climate</span>
+          <span class="badge rounded-pill text-bg-light text-dark">Water</span>
+          <span class="badge rounded-pill text-bg-light text-dark">Waste</span>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- Timeline Cards Section -->
-  <section class="timeline" aria-label="Sustainability timeline">
+  <main id="main">
+    <!-- Responsive 3-column section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="d-flex align-items-end justify-content-between flex-wrap gap-3 mb-3">
+          <div>
+            <h2 class="section-title mb-1" data-i18n="pillarsTitle">What We’re Focusing On</h2>
+            <p class="text-muted mb-0" data-i18n="pillarsSub">
+              Three pillars, one roadmap—built to work on every device and in right-to-left languages.
+            </p>
+          </div>
+        </div>
 
-    <!-- Card 1: 2006 -->
-    <div class="card cat-ghg">
-      <h2>2006</h2>
-      <h3>Peak GHG Emissions</h3>
+        <div class="row g-4">
+          <!-- Column 1 -->
+          <div class="col-12 col-md-4">
+            <div class="feature h-100">
+              <h3 class="h5 mb-2">
+                <i class="bi bi-globe2 me-2" aria-hidden="true"></i>
+                <span data-i18n="pillar1Title">Climate Progress</span>
+              </h3>
+              <p class="text-muted mb-3" data-i18n="pillar1Text">
+                Reduce operational emissions with efficiency, clean energy, and measurable targets.
+              </p>
+              <button class="btn btn-primary w-100"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalClimate">
+                <span data-i18n="learnMore">Learn More</span>
+              </button>
+            </div>
+          </div>
 
-      <!-- Add image -->
-      <img class="card-img" src="ghg-2006[1].jpg" alt="Factory operations and emissions reduction" />
+          <!-- Column 2 -->
+          <div class="col-12 col-md-4">
+            <div class="feature h-100">
+              <h3 class="h5 mb-2">
+                <i class="bi bi-droplet-half me-2" aria-hidden="true"></i>
+                <span data-i18n="pillar2Title">Water Stewardship</span>
+              </h3>
+              <p class="text-muted mb-3" data-i18n="pillar2Text">
+                Use water responsibly and support restoration projects where operations impact watersheds.
+              </p>
+              <button class="btn btn-primary w-100"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalWater">
+                <span data-i18n="learnMore">Learn More</span>
+              </button>
+            </div>
+          </div>
 
-      <p class="summary">
-        This year marks Intel's highest annual greenhouse gas emissions
-        for operations. Over subsequent years, Intel invests in chemical
-        abatement, renewable energy, and energy-efficient manufacturing.
+          <!-- Column 3 -->
+          <div class="col-12 col-md-4">
+            <div class="feature h-100">
+              <h3 class="h5 mb-2">
+                <i class="bi bi-recycle me-2" aria-hidden="true"></i>
+                <span data-i18n="pillar3Title">Waste Reduction</span>
+              </h3>
+              <p class="text-muted mb-3" data-i18n="pillar3Text">
+                Keep materials in circulation and reduce landfill waste with better processes and partners.
+              </p>
+              <button class="btn btn-primary w-100"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalWaste">
+                <span data-i18n="learnMore">Learn More</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Cards Section (roadmap) -->
+    <section class="timeline-wrap pb-4" aria-label="Timeline">
+      <div class="container">
+        <div class="d-flex align-items-end justify-content-between flex-wrap gap-3 mb-3">
+          <div>
+            <h2 class="section-title mb-1" data-i18n="timelineTitle">Roadmap Timeline</h2>
+            <p class="text-muted mb-0" data-i18n="timelineSub">
+              Desktop: scroll horizontally with snap • Mobile: stack vertically
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline container" role="region" aria-label="Milestones timeline" tabindex="0">
+        <!-- Card 1 -->
+        <article class="cardX cat-ghg">
+          <h3 class="cardYear">2006</h3>
+          <h4 class="cardTitle" data-i18n="c1Title">Peak GHG Emissions</h4>
+          <img class="cardImg" src="img/ghg-2006.jpg[1]" alt="Industrial facility representing emissions baseline" />
+          <p class="cardSummary" data-i18n="c1Summary">
+            A baseline year that highlights why efficiency, abatement, and clean energy investments matter.
+          </p>
+          <div class="cardDetails">
+            <ul>
+              <li data-i18n="c1d1">Sets a clear reference point for measuring improvement.</li>
+              <li data-i18n="c1d2">Focus shifts toward reducing operational impact.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="cardX cat-strategy">
+          <h3 class="cardYear">2020</h3>
+          <h4 class="cardTitle" data-i18n="c2Title">RISE Strategy</h4>
+          <img class="cardImg" src="img/rise-2020.jpg[1]" alt="Roadmap planning and strategy visuals" />
+          <p class="cardSummary" data-i18n="c2Summary">
+            A structured plan with measurable goals to guide climate, water, and waste progress.
+          </p>
+          <div class="cardDetails">
+            <ul>
+              <li data-i18n="c2d1">Turns sustainability work into an organized roadmap.</li>
+              <li data-i18n="c2d2">Improves clarity for stakeholders and teams.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="cardX cat-netzero">
+          <h3 class="cardYear">2022</h3>
+          <h4 class="cardTitle" data-i18n="c3Title">Net-Zero by 2040</h4>
+          <img class="cardImg" src="img/netzero-2040.jpg[1]" alt="Clean energy transition representing net-zero pathway" />
+          <p class="cardSummary" data-i18n="c3Summary">
+            A long-term target for operational emissions that guides investments and accountability.
+          </p>
+          <div class="cardDetails">
+            <ul>
+              <li data-i18n="c3d1">Defines the end-state for operational sustainability.</li>
+              <li data-i18n="c3d2">Aligns teams around measurable progress over time.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="cardX cat-renewable">
+          <h3 class="cardYear">2023</h3>
+          <h4 class="cardTitle" data-i18n="c4Title">Renewable Electricity</h4>
+          <img class="cardImg" src="img/renewable-2023.jpg[1]" alt="Renewable energy grid and clean power imagery" />
+          <p class="cardSummary" data-i18n="c4Summary">
+            A progress milestone that reduces emissions and supports longer-term climate targets.
+          </p>
+          <div class="cardDetails">
+            <ul>
+              <li data-i18n="c4d1">Shows measurable movement, not just intention.</li>
+              <li data-i18n="c4d2">Strengthens credibility with concrete results.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="cardX cat-summit">
+          <h3 class="cardYear">2024</h3>
+          <h4 class="cardTitle" data-i18n="c5Title">Sustainability Summit</h4>
+          <img class="cardImg" src="img/summit-2024.jpg[1]" alt="Conference collaboration representing industry partnership" />
+          <p class="cardSummary" data-i18n="c5Summary">
+            Collaboration across partners to scale sustainable manufacturing and supply chain progress.
+          </p>
+          <div class="cardDetails">
+            <ul>
+              <li data-i18n="c5d1">Moves beyond internal change to ecosystem change.</li>
+              <li data-i18n="c5d2">Brings suppliers and leaders into shared solutions.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <p class="hint text-center mt-2" data-i18n="hint">
+        Tip: Hover (desktop) or tap (mobile) to reveal details.
       </p>
+    </section>
 
-      <!-- Hidden details (reveal on hover / tap) -->
-      <div class="details">
-        <ul>
-          <li>Baseline moment that helps measure long-term progress.</li>
-          <li>Focus areas: abatement, efficiency, and clean energy.</li>
-          <li>Sets the “why” behind future sustainability goals.</li>
-        </ul>
+    <!-- Subscription Form + Footer -->
+    <section class="py-5">
+      <div class="container">
+        <div class="subscribe">
+          <div class="row g-4 align-items-center">
+            <div class="col-12 col-lg-6">
+              <h2 class="section-title mb-1" data-i18n="subTitle">Subscribe to the Newsletter</h2>
+              <p class="text-muted mb-0" data-i18n="subText">
+                Get occasional updates about sustainability progress and new milestones. No spam.
+              </p>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <form class="needs-validation" novalidate>
+                <div class="mb-3">
+                  <label for="email" class="form-label" data-i18n="emailLabel">Email address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="name@example.com"
+                    autocomplete="email"
+                    required
+                    aria-describedby="emailHelp"
+                  />
+                  <div id="emailHelp" class="form-text" data-i18n="emailHelp">
+                    We’ll only use your email for this newsletter.
+                  </div>
+                  <div class="invalid-feedback" data-i18n="emailError">
+                    Please enter a valid email address.
+                  </div>
+                </div>
+
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" value="yes" id="consent" required>
+                  <label class="form-check-label" for="consent" data-i18n="consentLabel">
+                    I agree to receive email updates.
+                  </label>
+                  <div class="invalid-feedback" data-i18n="consentError">
+                    Please check the box to subscribe.
+                  </div>
+                </div>
+
+                <button class="btn btn-success w-100" type="submit" data-i18n="subBtn">
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <footer class="footer mt-4" role="contentinfo">
+          <p class="mb-0" data-i18n="footer">
+            Built as a responsive, accessible roadmap experience.
+          </p>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modals (Bootstrap component = LevelUp) -->
+  <div class="modal fade" id="modalClimate" tabindex="-1" aria-labelledby="modalClimateLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title fs-5" id="modalClimateLabel" data-i18n="m1Title">Climate Progress</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" data-i18n="m1Body">
+          This roadmap highlights measurable progress over time—efficiency improvements, renewable electricity,
+          and long-term emissions targets that guide decisions.
+        </div>
       </div>
     </div>
+  </div>
 
-    <!-- Card 2: 2020 -->
-    <div class="card cat-strategy">
-      <h2>2020</h2>
-      <h3>RISE Strategy</h3>
-
-      <!-- Add image -->
-      <img class="card-img" src="rise-2020[1].jpg" alt="Strategy roadmap and sustainability planning" />
-
-      <p class="summary">
-        Intel launches its RISE (Responsible, Inclusive, Sustainable,
-        Enabling) strategy and 2030 goals to drive climate action,
-        water stewardship, and waste reduction.
-      </p>
-
-      <div class="details">
-        <ul>
-          <li>Organizes sustainability work into clear pillars and targets.</li>
-          <li>Introduces measurable 2030 goals across key categories.</li>
-          <li>Moves from initiatives to a structured roadmap approach.</li>
-        </ul>
+  <div class="modal fade" id="modalWater" tabindex="-1" aria-labelledby="modalWaterLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title fs-5" id="modalWaterLabel" data-i18n="m2Title">Water Stewardship</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" data-i18n="m2Body">
+          Water is local. Improving efficiency and supporting restoration projects helps balance impact in the
+          communities where operations run.
+        </div>
       </div>
     </div>
+  </div>
 
-    <!-- Card 3: 2022 -->
-    <div class="card cat-netzero">
-      <h2>2022</h2>
-      <h3>Net-Zero By 2040</h3>
-
-      <!-- Add image -->
-      <img class="card-img" src="netzero-2040[1].jpg" alt="Net-zero pathway and clean energy transition" />
-
-      <p class="summary">
-        Intel announces its commitment to achieve net-zero greenhouse
-        gas emissions (Scope 1 and 2) across its global operations
-        by 2040, building on years of environmental initiatives.
-      </p>
-
-      <div class="details">
-        <ul>
-          <li>Long-term target for operational emissions.</li>
-          <li>Builds on efficiency + renewable electricity progress.</li>
-          <li>Creates a clear “end-state” for the roadmap.</li>
-        </ul>
+  <div class="modal fade" id="modalWaste" tabindex="-1" aria-labelledby="modalWasteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title fs-5" id="modalWasteLabel" data-i18n="m3Title">Waste Reduction</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" data-i18n="m3Body">
+          Good waste systems are designed: reduce, reuse, recover. The goal is to keep valuable materials in the loop.
+        </div>
       </div>
     </div>
+  </div>
 
-    <!-- Card 4: 2023 -->
-    <div class="card cat-renewable">
-      <h2>2023</h2>
-      <h3>Renewable Electricity</h3>
+  <!-- Bootstrap JS (needed for modals + validation UI) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-      <!-- Add image -->
-      <img class="card-img" src="renewable-2023[1].jpg" alt="Renewable electricity and clean energy grid" />
-
-      <p class="summary">
-        The company achieves 99% renewable electricity usage worldwide,
-        helping to lower carbon emissions and driving progress toward
-        long-term sustainability goals.
-      </p>
-
-      <div class="details">
-        <ul>
-          <li>Concrete progress milestone (not just a promise).</li>
-          <li>Directly supports emissions reduction goals.</li>
-          <li>Shows momentum toward future targets.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Card 5: 2024 -->
-    <div class="card cat-summit">
-      <h2>2024</h2>
-      <h3>Sustainability Summit</h3>
-
-      <!-- Add image -->
-      <img class="card-img" src="summit-2024[1].jpg" alt="Conference collaboration and sustainable manufacturing" />
-
-      <p class="summary">
-        Intel hosts its first Sustainability Summit, uniting suppliers,
-        government officials, and industry leaders to collaborate on
-        next-generation sustainable semiconductor manufacturing.
-      </p>
-
-      <div class="details">
-        <ul>
-          <li>Signals supply chain + partner alignment.</li>
-          <li>Moves sustainability beyond internal operations.</li>
-          <li>Focuses on scaling solutions across the industry.</li>
-        </ul>
-      </div>
-    </div>
-
-  </section>
-
-  <p class="hint">Scroll horizontally on desktop • Tap cards on mobile to expand</p>
-
-  <!-- Tap-to-expand script for mobile/touch; hover still works on desktop -->
   <script>
-  (() => {
-    const root = document.documentElement;
-    const tapMql = window.matchMedia('(hover: none), (pointer: coarse)');
-    const cards = Array.from(document.querySelectorAll('.timeline .card'));
-    if (!cards.length) return;
+    // ---------- Optional LevelUp: auto-detect language + RTL ----------
+    const BOOTSTRAP_LTR = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css";
+    const BOOTSTRAP_RTL = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css";
 
-    // Make cards keyboard-focusable (good UX and accessibility)
-    cards.forEach(card => {
-      card.tabIndex = 0;
-      card.setAttribute('aria-expanded', 'false');
-    });
-
-    function setTapMode(on) {
-      root.classList.toggle('tap-mode', on);
-      // close everything when changing modes (like rotating the phone)
-      cards.forEach(c => {
-        c.classList.remove('is-open');
-        c.setAttribute('aria-expanded', 'false');
-      });
-    }
-
-    setTapMode(tapMql.matches);
-    tapMql.addEventListener?.('change', e => setTapMode(e.matches));
-
-    function toggleCard(card) {
-      const willOpen = !card.classList.contains('is-open');
-
-      // close other cards (keeps it “roadmap” clean)
-      cards.forEach(c => {
-        c.classList.remove('is-open');
-        c.setAttribute('aria-expanded', 'false');
-      });
-
-      if (willOpen) {
-        card.classList.add('is-open');
-        card.setAttribute('aria-expanded', 'true');
+    const i18n = {
+      en: {
+        heroTitle: "Sustainability Through the Ages",
+        heroSub: "Explore a journey through time—see how long-term goals, progress milestones, and collaboration can drive a more sustainable future.",
+        pillarsTitle: "What We’re Focusing On",
+        pillarsSub: "Three pillars, one roadmap—built to work on every device and in right-to-left languages.",
+        pillar1Title: "Climate Progress",
+        pillar1Text: "Reduce operational emissions with efficiency, clean energy, and measurable targets.",
+        pillar2Title: "Water Stewardship",
+        pillar2Text: "Use water responsibly and support restoration projects where operations impact watersheds.",
+        pillar3Title: "Waste Reduction",
+        pillar3Text: "Keep materials in circulation and reduce landfill waste with better processes and partners.",
+        learnMore: "Learn More",
+        timelineTitle: "Roadmap Timeline",
+        timelineSub: "Desktop: scroll horizontally with snap • Mobile: stack vertically",
+        c1Title: "Peak GHG Emissions",
+        c1Summary: "A baseline year that highlights why efficiency, abatement, and clean energy investments matter.",
+        c1d1: "Sets a clear reference point for measuring improvement.",
+        c1d2: "Focus shifts toward reducing operational impact.",
+        c2Title: "RISE Strategy",
+        c2Summary: "A structured plan with measurable goals to guide climate, water, and waste progress.",
+        c2d1: "Turns sustainability work into an organized roadmap.",
+        c2d2: "Improves clarity for stakeholders and teams.",
+        c3Title: "Net-Zero by 2040",
+        c3Summary: "A long-term target for operational emissions that guides investments and accountability.",
+        c3d1: "Defines the end-state for operational sustainability.",
+        c3d2: "Aligns teams around measurable progress over time.",
+        c4Title: "Renewable Electricity",
+        c4Summary: "A progress milestone that reduces emissions and supports longer-term climate targets.",
+        c4d1: "Shows measurable movement, not just intention.",
+        c4d2: "Strengthens credibility with concrete results.",
+        c5Title: "Sustainability Summit",
+        c5Summary: "Collaboration across partners to scale sustainable manufacturing and supply chain progress.",
+        c5d1: "Moves beyond internal change to ecosystem change.",
+        c5d2: "Brings suppliers and leaders into shared solutions.",
+        hint: "Tip: Hover (desktop) or tap (mobile) to reveal details.",
+        subTitle: "Subscribe to the Newsletter",
+        subText: "Get occasional updates about sustainability progress and new milestones. No spam.",
+        emailLabel: "Email address",
+        emailHelp: "We’ll only use your email for this newsletter.",
+        emailError: "Please enter a valid email address.",
+        consentLabel: "I agree to receive email updates.",
+        consentError: "Please check the box to subscribe.",
+        subBtn: "Subscribe",
+        footer: "Built as a responsive, accessible roadmap experience.",
+        m1Title: "Climate Progress",
+        m1Body: "This roadmap highlights measurable progress over time—efficiency improvements, renewable electricity, and long-term emissions targets that guide decisions.",
+        m2Title: "Water Stewardship",
+        m2Body: "Water is local. Improving efficiency and supporting restoration projects helps balance impact in the communities where operations run.",
+        m3Title: "Waste Reduction",
+        m3Body: "Good waste systems are designed: reduce, reuse, recover. The goal is to keep valuable materials in the loop."
+      },
+      ar: {
+        heroTitle: "الاستدامة عبر الزمن",
+        heroSub: "استكشف رحلة عبر الوقت — كيف يمكن للأهداف طويلة المدى والإنجازات والتعاون أن تدعم مستقبلًا أكثر استدامة.",
+        pillarsTitle: "ما الذي نركز عليه",
+        pillarsSub: "ثلاثة محاور وخارطة طريق واحدة — تعمل على كل الأجهزة وتدعم اللغات من اليمين لليسار.",
+        pillar1Title: "تقدم المناخ",
+        pillar1Text: "خفض الانبعاثات التشغيلية عبر الكفاءة والطاقة النظيفة وأهداف قابلة للقياس.",
+        pillar2Title: "إدارة المياه",
+        pillar2Text: "استخدام المياه بمسؤولية ودعم مشاريع الاستعادة في المجتمعات المتأثرة.",
+        pillar3Title: "تقليل النفايات",
+        pillar3Text: "إبقاء المواد في الدورة وتقليل النفايات عبر عمليات وشراكات أفضل.",
+        learnMore: "اعرف المزيد",
+        timelineTitle: "الجدول الزمني للخارطة",
+        timelineSub: "سطح المكتب: تمرير أفقي مع تثبيت • الهاتف: ترتيب عمودي",
+        c1Title: "ذروة انبعاثات الغازات",
+        c1Summary: "سنة مرجعية تبرز أهمية الكفاءة وتقليل الأثر والاستثمار في الطاقة النظيفة.",
+        c1d1: "تحدد نقطة مرجعية واضحة لقياس التحسن.",
+        c1d2: "تركيز أكبر على تقليل الأثر التشغيلي.",
+        c2Title: "استراتيجية RISE",
+        c2Summary: "خطة منظمة بأهداف قابلة للقياس لتوجيه التقدم في المناخ والمياه والنفايات.",
+        c2d1: "تحول العمل إلى خارطة طريق منظمة.",
+        c2d2: "تحسن الوضوح لأصحاب المصلحة والفرق.",
+        c3Title: "صافي انبعاثات صفرية بحلول 2040",
+        c3Summary: "هدف طويل المدى يوجه القرارات والاستثمارات والمساءلة.",
+        c3d1: "يحدد الحالة النهائية للاستدامة التشغيلية.",
+        c3d2: "يوحد الفرق حول تقدم قابل للقياس.",
+        c4Title: "الكهرباء المتجددة",
+        c4Summary: "إنجاز يساهم في خفض الانبعاثات ويدعم أهداف المناخ طويلة المدى.",
+        c4d1: "يظهر تقدمًا ملموسًا لا مجرد نوايا.",
+        c4d2: "يعزز المصداقية بنتائج واضحة.",
+        c5Title: "قمة الاستدامة",
+        c5Summary: "تعاون مع الشركاء لتوسيع التصنيع المستدام والتقدم في سلسلة التوريد.",
+        c5d1: "ينقل التغيير من داخلي إلى منظومة كاملة.",
+        c5d2: "يجمع الموردين والقادة حول حلول مشتركة.",
+        hint: "ملاحظة: مرر بالفأرة (سطح المكتب) أو اضغط (الهاتف) لعرض التفاصيل.",
+        subTitle: "اشترك في النشرة",
+        subText: "تحديثات قليلة حول التقدم والمعالم الجديدة. بدون إزعاج.",
+        emailLabel: "البريد الإلكتروني",
+        emailHelp: "سنستخدم بريدك لهذا الاشتراك فقط.",
+        emailError: "الرجاء إدخال بريد إلكتروني صحيح.",
+        consentLabel: "أوافق على تلقي رسائل البريد الإلكتروني.",
+        consentError: "الرجاء تحديد المربع للاشتراك.",
+        subBtn: "اشترك",
+        footer: "تم بناء التجربة كخارطة طريق متجاوبة وسهلة الوصول.",
+        m1Title: "تقدم المناخ",
+        m1Body: "تسلط الخارطة الضوء على تقدم قابل للقياس — تحسينات الكفاءة والكهرباء المتجددة وأهداف طويلة المدى.",
+        m2Title: "إدارة المياه",
+        m2Body: "المياه محلية. تحسين الكفاءة ودعم الاستعادة يساعدان في موازنة الأثر على المجتمعات.",
+        m3Title: "تقليل النفايات",
+        m3Body: "النظام الجيد يقلل ويعيد الاستخدام ويسترجع المواد. الهدف إبقاء المواد في الدورة."
       }
+    };
+
+    const bootstrapCss = document.getElementById("bootstrapCss");
+    const langToggle = document.getElementById("langToggle");
+
+    function applyLanguage(lang) {
+      const isRTL = (lang === "ar");
+      document.documentElement.lang = lang;
+      document.documentElement.dir = isRTL ? "rtl" : "ltr";
+      document.documentElement.dataset.bsDir = isRTL ? "rtl" : "ltr";
+      bootstrapCss.href = isRTL ? BOOTSTRAP_RTL : BOOTSTRAP_LTR;
+      langToggle.textContent = isRTL ? "English" : "العربية";
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (i18n[lang] && i18n[lang][key]) el.textContent = i18n[lang][key];
+      });
     }
 
-    // Tap / click toggles on touch devices only
-    document.addEventListener('click', (e) => {
-      if (!root.classList.contains('tap-mode')) return;
+    // Auto-detect (optional): if browser language starts with "ar", switch to Arabic
+    const browserLang = (navigator.language || "en").toLowerCase();
+    if (browserLang.startsWith("ar")) applyLanguage("ar");
 
-      const card = e.target.closest('.card');
-      if (!card) return;
-
-      // Don't hijack link clicks if you add links later
-      if (e.target.closest('a')) return;
-
-      toggleCard(card);
+    langToggle.addEventListener("click", () => {
+      const next = document.documentElement.lang === "ar" ? "en" : "ar";
+      applyLanguage(next);
     });
 
-    // Keyboard: Enter/Space toggles
-    document.addEventListener('keydown', (e) => {
-      const card = document.activeElement?.closest?.('.card');
-      if (!card) return;
+    // ---------- Accessible form validation ----------
+    (() => {
+      const forms = document.querySelectorAll(".needs-validation");
+      Array.from(forms).forEach(form => {
+        form.addEventListener("submit", event => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          } else {
+            event.preventDefault(); // demo behavior
+            alert(document.documentElement.lang === "ar" ? "تم الاشتراك بنجاح!" : "Subscribed! Thanks.");
+            form.reset();
+            form.classList.remove("was-validated");
+            return;
+          }
+          form.classList.add("was-validated");
+        }, false);
+      });
+    })();
 
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
+    // ---------- Hover vs Tap (keeps Week 1 behavior) ----------
+    (() => {
+      const root = document.documentElement;
+      const tapMql = window.matchMedia("(hover: none), (pointer: coarse)");
+      const cards = Array.from(document.querySelectorAll(".timeline .cardX"));
+      if (!cards.length) return;
+
+      cards.forEach(card => {
+        card.tabIndex = 0;
+        card.setAttribute("aria-expanded", "false");
+      });
+
+      function setTapMode(on) {
+        root.classList.toggle("tap-mode", on);
+        cards.forEach(c => {
+          c.classList.remove("is-open");
+          c.setAttribute("aria-expanded", "false");
+        });
+      }
+
+      setTapMode(tapMql.matches);
+      tapMql.addEventListener?.("change", e => setTapMode(e.matches));
+
+      function toggleCard(card) {
+        const willOpen = !card.classList.contains("is-open");
+        cards.forEach(c => {
+          c.classList.remove("is-open");
+          c.setAttribute("aria-expanded", "false");
+        });
+        if (willOpen) {
+          card.classList.add("is-open");
+          card.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      document.addEventListener("click", (e) => {
+        if (!root.classList.contains("tap-mode")) return;
+        const card = e.target.closest(".cardX");
+        if (!card) return;
         toggleCard(card);
-      }
-    });
-  })();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        const card = document.activeElement?.closest?.(".cardX");
+        if (!card) return;
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleCard(card);
+        }
+      });
+    })();
   </script>
 </body>
 </html>
